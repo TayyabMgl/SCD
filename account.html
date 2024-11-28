@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+    <body>
+    <div class="container">
+    <div class="navbar">
+        <div class logo>
+            <image src="Images/001.png"  width="185px" height="85px"></image>
+        </div>
+    <nav>
+    <ul id="MenuItems">
+    <li><a href="index.html">Home</a> </li>
+    <li><a href="products.html">Products</a> </li>
+    <li><a href="">About</a> </li>
+    <li><a href="">Contact</a> </li>
+    <li><a href="account.html">Account</a> </li>
+    </ul>
+    </nav>
+    <img src="Images/003 (2).png" width="40px" height="40px">
+    <img src="Images/018.png" class="menu-icon" onclick="menutoggle()"> 
+    
+    </div>
+
+</div>
+
+<!---account-->
+
+<div class="account">
+    <div class="container">
+<div class="row">
+    <div class="col-2">
+    <img src="Images/002.webp" width="100%">
+</div>
+<div class="col-2">
+<div class="form-container">
+    <div class="form-btn">
+        <span onclick="Login()">Login</span>
+        <span onclick="Register()">Register</span>
+        <hr id="Indicator">
+    </div>    
+    <form id="LoginForm" action="login.php" method="post">
+        <input type="text" name="username" placeholder="Username" required>
+    <br>
+    <input type="password" name="password" placeholder="Password" required>
+    <br>
+    <button type="submit" class="btn">Login</button>
+    <a href="forgot-password.php">Forgot Password?</a>
+</form>
+<form id="Reg" action="register.php" method="post" onsubmit="return validateRegisterForm()">
+    
+    <input type="text" name="username" id="username" placeholder="Username" required>
+    <small id="usernameError" style="margin-top: -8px; font-size: 10px; color: red; position: absolute; display:none;" >The first letter of name should be capital</small>
+    
+    <input type="text" name="email" id="email" placeholder="Email" required>
+    <small id="emailError" style="margin-top: -8px; font-size: 10px; color: red; position: absolute; display:none;">Please enter a valid email address!</small>
+    
+    <input type="integer" name="contact" id="contact" placeholder="Contact Number" required>
+    <small id="contactError"style="margin-top: -8px; font-size: 10px; color: red; position: absolute; display:none;">Please enter only numbers for the contact!</small>
+
+    <input type="password" name="password" id="password" placeholder="Password" required>
+    <small id="passwordError"style="margin-top: -8px; font-size: 10px; color: red; position: absolute; display:none;">Password must be at least 6 characters long!</small>
+
+  <button type="Submit" class="btn">Register</button>
+</form> 
+</div>
+</div>
+
+</div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!----footer---->
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+        <div class="footer-col-1">
+            <h3>Download Our App</h3>
+            <p>Download Our App for Android And ios mobile phone</p>
+
+            <div class="applogo">
+            <img src="Images/016.png">
+            <img src="Images/017.png">
+            </div>
+            </div>
+            <div class="footer-col-2">
+                <img src="Images/001.png" height="95px">
+                <p>Our Purpose is to revolutionize the way people shop for groceries by offering a seamless, convenient, and user-friendly platform</p>
+            </div>
+            <div class="footer-col-3">
+                <h3>Useful links</h3>
+                <ul>
+                <li>Coupons</li>
+                <li>Blog Post</li>
+                <li>Rerurn Policy</li>
+                <li>Join Affiliate</li>
+                </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                    <ul>
+                    <li>Facebook</li>
+                    <li>X.</li>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                    </ul>
+                    </div>
+                    </div>
+                    <hr>
+                    <p class="copyright">Copyright 2024 TZMart</p></hr>
+                    </div>
+                    </div>
+
+
+                    
+<script>
+
+                        var MenuItems=document.getElementById("MenuItems");
+                        MenuItems.style.maxHeight="0px";
+                        function menutoggle(){
+                            if(MenuItems.style.maxHeight=="0px")
+                        {
+                            MenuItems.style.maxHeight="200px";
+                        }
+                        
+                        else{
+                            MenuItems.style.maxHeight="0px";
+                        }
+                        
+                            
+                        }
+                        
+                        
+
+
+
+var LoginForm = document.getElementById("LoginForm");
+var Reg = document.getElementById("Reg");
+var Indicator = document.getElementById("Indicator");
+
+function Register(){
+Reg.style.transform="translateX(0px)";
+LoginForm.style.transform="translateX(0px)";
+Indicator.style.transform = "translateX(100px)";
+}
+
+function Login(){
+Reg.style.transform="translateX(300px)";
+LoginForm.style.transform="translateX(300px)";
+Indicator.style.transform = "translateX(0px)";
+}
+
+
+function validateRegisterForm() {
+        let isValid=true;
+
+        // Validate Username (Only Letters)
+        const username = document.getElementById("username").value;
+        const usernameError = document.getElementById("usernameError");
+        if (!/^[A-Z][a-zA-Z]*$/.test(username)) {
+            usernameError.style.display = "block";
+            isValid = false;
+        } else {
+            usernameError.style.display = "none";
+        }
+
+        // Validate Email
+        const email = document.getElementById("email").value;
+        const emailError = document.getElementById("emailError");
+        if (!/^\S+@\S+\.\S+$/.test(email)) {
+            emailError.style.display = "block";
+            isValid = false;
+        } else {
+            emailError.style.display = "none";
+        }
+
+        // Validate Contact Number (Only Numbers)
+        const contactNumber = document.getElementById("contact").value;
+        const contactError = document.getElementById("contactError");
+        if (!/^\d+$/.test(contactNumber)) {
+            contactError.style.display = "block";
+            isValid = false;
+        } else {
+            contactError.style.display = "none";
+        }
+
+        // Validate Password (Min 6 Characters)
+        const password = document.getElementById("password").value;
+        const passwordError = document.getElementById("passwordError");
+        if (password.length < 6) {
+            passwordError.style.display = "block";
+            isValid = false;
+        } else {
+            passwordError.style.display = "none";
+        }
+
+        return isValid; // Submit the form only if all validations pass
+    }
+</script>                        
+</body>
+</html>
